@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <div class="nav-logo" title="Meridian Logo">
+        <img src="logo.png" alt="Meridian Logo" id="nav-logo-img">
+      </div>
+      <span class="nav-brand-name">Meridian.</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+    <a href="#signup" class="nav-cta-btn">Try now</a>
+  </div>
+</nav>
+    <section id="hero">
+        <canvas id="hero-matrix-canvas"></canvas>
+        <div id="hero-contents">
+            <div id="welcome-text-container">
+                <div id="welcome-msg">
+                    <h1 id="Declutter"><span id="typewriter-text">Declutter Your Mind</span><span class="typewriter-cursor">|</span></h1>
+                    <p class="herotxtsmall"><span class="highlight-meridian">Meridian</span> is your perfect Ai therapy chatbot for clarity and emotional wellbeing</p>
+                    <p class="herotxtsmall">Start your journey to a decluttered life today!</p>
+                </div>
+                <div id="welcome-buttons">
+                    <button type="button" class="welcomebuttons" id="signup">Sign up for free!</button>
+                    <button type="button" class="welcomebuttons" id="login">Log back in</button>
+                </div>
+            </div>
+            <div id="hero-image">
+                <img src="heroimagecutout.png" id="himg" alt="Decorative flower illustration with a gentle pink blossom and green leaves evoking calm wellness for a therapy chatbot homepage">
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div id="about-inner">
+            <div id="about-intro">
+                <div id="about-intro-copy">
+                    <div id="about-header">
+                        <div id="about-heading">
+                            <h2 id="about-title">We Started Meridian with a</h2>
+                            <h2 id="about-vision">Vision <svg xmlns="http://www.w3.org/2000/svg" height="38px" viewBox="0 -960 960 960" width="38px" fill="#5F7E68"><path d="M341-656 215-781l43-43 126 126-43 42Zm149-90v-170h60v170h-60Zm291 530L655-341l43-43 126 126-43 42Zm-73-449-43-43 106-106 43 43-106 106Zm38 175v-60h170v60H746ZM212-85 85-212q-9-9-9-21t9-21l370-371q35-35 85-35t85 35q35 35 35 85t-35 85L254-85q-9 9-21 9t-21-9Zm300-342-21-21-21-21-21.5-21-21.5-21 43 42 42 42ZM233-148l279-279-85-84-278 278 84 85Z"/></svg></h2>
+                        </div>
+
+                        <div id="about-subtitle">
+                            <p id="about-subtitle-text">...to make mental wellness support feel human, accessible, and real.</p>
+                        </div>
+                        <div id="about-tagline">
+                            <p id="about-tagline-text">We believe therapy shouldn't feel like talking to a search engine—it should feel like talking to someone who genuinely understands.</p>
+                        </div>
+                    </div>
+
+                    <div id="about-summary">
+                        <p>Everyone deserves access to mental health support, and Meridian is designed to provide just that. With Meridian, you can experience the benefits of therapy and consultation from the comfort of your own home, anytime and anywhere.</p>
+                    </div>
+                </div>
+
+                <div id="about-illustration">
+                    <div id="about-illustration-card">
+                        <img src="heroimagecutout.png" alt="Illustration showing calm, supportive mental wellness experience">
+                    </div>
+                </div>
+            </div>
+
+            <div id="about-problem">
+                <h3>What we saw</h3>
+                <p>Many people struggle to find the right therapist or mental health support that fits their needs. Traditional therapy can be expensive, time-consuming, and sometimes intimidating. We wanted to create a solution that breaks down these barriers and makes mental health support more accessible, affordable, and approachable for everyone.</p>
+            </div>
+
+            <div id="about-approach">
+                <h3>Why choose Meridian?</h3>
+                <div class="about-card" id="about-difference">
+                    <h4>What Makes Us Different</h4>
+                    <p id="about-difference-text">Meridian is built to feel more than a tool. It is designed to feel like a supportive conversation partner that listens, responds with empathy, and guides you toward clarity.</p>
+                </div>
+                <div class="about-features" id="about-features">
+                    <div class="feature-item" id="feature-human-centered">
+                        <h4>Human-Centered Design</h4>
+                        <p>Not just smart AI—it feels like a real conversation.</p>
+                    </div>
+                    <div class="feature-item" id="feature-accessible">
+                        <h4>Accessible Wellness</h4>
+                        <p>Affordable, always available, no judgment.</p>
+                    </div>
+                    <div class="feature-item" id="feature-professional">
+                        <h4>Professional Foundation</h4>
+                        <p>Built with evidence-based mental health principles.</p>
+                    </div>
+                    <div class="feature-item" id="feature-companion">
+                        <h4>A Real Companion</h4>
+                        <p>Not replacing therapy, but a trustworthy guide on your wellness journey.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about-mission">
+                <h3>Our Mission</h3>
+                <p id="mission-text">Meridian exists to meet you where you are—in moments of doubt, confusion, or growth. We're here to help you understand yourself better, work through challenges, and build the life you want.</p>
+            </div>
+
+            <div id="about-values">
+                <h3>Our Values</h3>
+                <p id="values-intro">Choose what resonates:</p>
+                <ul id="values-list">
+                    <li id="value-connection"><strong>Genuine Connection</strong>: We prioritize real, empathetic support over perfection.</li>
+                    <li id="value-accessibility"><strong>Accessibility</strong>: Mental wellness shouldn't be a luxury.</li>
+                    <li id="value-transparency"><strong>Transparency</strong>: We're AI, and we're honest about what we can and can't do.</li>
+                    <li id="value-growth"><strong>Your Growth</strong>: We're here to empower, not replace human connection.</li>
+                </ul>
+            </div>
+
+            <div id="about-cta">
+                <blockquote id="about-cta-text">Start your wellness journey. Meridian is here whenever you need to talk.</blockquote>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
