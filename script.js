@@ -193,7 +193,40 @@ function initHeroMatrixCursor() {
   render();
 }
 
+function initTapReveal() {
+  const button = document.getElementById("about-reveal-button");
+  const panel = document.getElementById("about-summary");
+
+  if (!button || !panel) return;
+
+  const revealOnce = () => {
+    if (button.dataset.revealed === "true") return;
+    button.dataset.revealed = "true";
+
+    panel.setAttribute("aria-hidden", "false");
+    button.setAttribute("aria-expanded", "true");
+    panel.classList.add("revealed");
+    button.classList.add("fade-out-and-scale");
+
+    const hideButton = () => {
+      button.style.display = "none";
+      button.removeEventListener("animationend", hideButton);
+    };
+
+    button.addEventListener("animationend", hideButton);
+  };
+
+  button.addEventListener("click", revealOnce);
+  button.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      revealOnce();
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
   initHeroMatrixCursor();
+  initTapReveal();
 });
