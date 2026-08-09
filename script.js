@@ -214,6 +214,9 @@ function initTapReveal() {
     };
 
     button.addEventListener("animationend", hideButton);
+
+    // start scroll reveal only after the tap action has occurred
+    initProblemScrollReveal();
   };
 
   button.addEventListener("click", revealOnce);
@@ -223,6 +226,24 @@ function initTapReveal() {
       revealOnce();
     }
   });
+}
+
+function initProblemScrollReveal() {
+  const problemCard = document.getElementById("about-problem-card");
+  if (!problemCard) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        problemCard.classList.add("visible");
+        obs.unobserve(problemCard);
+      }
+    });
+  }, {
+    threshold: 1.0,
+  });
+
+  observer.observe(problemCard);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

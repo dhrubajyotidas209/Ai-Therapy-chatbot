@@ -4,6 +4,12 @@ html, body {
   width: 100%;
 }
 
+:root {
+  --about-section-gap: 300px;
+  --about-card-padding: 72px;
+  --about-card-side-padding: 40px;
+}
+
 /* Navbar Section*/
 .navbar {
   position: fixed;
@@ -241,12 +247,14 @@ html, body {
 /* Highlighted Meridian Text */
 .highlight-meridian {
   background-color: #92B39A;
-  color: #000000;
+  color: #15420a;
   padding: 3px 12px;
   border-radius: 8px;
   font-weight: 700;
   display: inline-block;
   line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-color: #455c4b;
 }
 
 .about-glass-card {
@@ -260,8 +268,8 @@ html, body {
   -webkit-backdrop-filter: blur(20px) saturate(200%);
   box-shadow: 0 22px 56px rgba(31, 57, 38, 0.18), 0 0 0 1px rgba(146, 179, 154, 0.14);
   border-radius: 30px;
-  padding: 16px 22px;
-  margin: 24px 0 0;
+  padding: 48px 38px;
+  margin: 32px 0 0;
   position: relative;
   transform: translateY(0);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, padding 0.3s ease;
@@ -406,7 +414,7 @@ html, body {
 /* About Section */
 #about {
   width: 100%;
-  padding: 100px 20px 100px;
+  padding: 120px 20px 120px;
   margin: 0;
   min-height: 80vh;
   display: flex;
@@ -420,7 +428,7 @@ html, body {
 #about-inner {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--about-section-gap);
   width: 100%;
   max-width: 1100px;
   text-align: center;
@@ -429,8 +437,8 @@ html, body {
 
 #about-intro {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: minmax(440px, 1.8fr) minmax(320px, 1fr);
+  gap: 48px;
   align-items: start;
   width: 100%;
 }
@@ -446,22 +454,21 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 320px;
 }
 
 #about-illustration-card {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 28px;
-  background: rgba(146, 179, 154, 0.08);
-  padding: 24px;
-  box-shadow: 0 20px 60px rgba(92, 121, 88, 0.12);
+  width: min(100%, 520px);
+  background: transparent; 
+  padding: 0;              
+  box-shadow: none;        
 }
 
 #about-illustration-card img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 22px;
+  filter: drop-shadow(0 12px 24px rgba(92, 121, 88, 0.25));
 }
 
 #about-header {
@@ -549,24 +556,114 @@ html, body {
   margin: 0;
 }
 
-#about-problem {
-  background: rgba(146, 179, 154, 0.08);
-  border-left: 6px solid rgba(146, 179, 154, 0.95);
-  border-radius: 28px;
-  padding: 32px;
-  box-shadow: 0 18px 40px rgba(92, 121, 88, 0.08);
+#about-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--about-section-gap);
+}
+
+#about-problem-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(146, 179, 154, 0.2);
+  border-radius: 32px;
+  padding: var(--about-card-padding);
+  box-shadow: 0 20px 60px rgba(92, 121, 88, 0.1);
+  opacity: 0;
+  transform: translateY(32px);
+  visibility: hidden;
+  will-change: opacity, transform, visibility;
+  transition: opacity 0.75s ease, transform 0.75s ease, visibility 0.75s ease;
+}
+
+#about-problem-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+#about-problem-card .problem-header h3 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  color: #2F4E36;
   text-align: left;
 }
 
-#about-problem h3 {
-  margin: 0 0 16px;
-  font-size: 28px;
-  color: #2F4E36;
+#about-problem-card .problem-body {
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 1.6fr)
+    1px
+    minmax(300px, 1.8fr)
+    minmax(260px, 320px);
+  gap: 28px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#about-problem-card .problem-left,
+#about-problem-card .problem-right {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: left;
+}
+
+#about-problem-card .problem-left p,
+#about-problem-card .problem-right p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #3E5140;
+}
+
+#about-problem-card .problem-divider {
+  width: 1px;
+  background: rgba(95, 126, 104, 0.28);
+  min-height: 220px;
+  justify-self: center;
+}
+
+.problem-image-placeholder {
+  min-height: 260px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1180px) {
+  #about-problem-card .problem-body {
+    grid-template-columns: minmax(220px, 1fr) 1px minmax(220px, 1fr);
+  }
+
+  .problem-image-placeholder {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 960px) {
+  #about-problem-card .problem-body {
+    grid-template-columns: 1fr;
+  }
+
+  #about-problem-card .problem-divider {
+    display: none;
+  }
+
+  .problem-image-placeholder {
+    width: 100%;
+    min-height: 220px;
+  }
 }
 
 #about-approach {
   display: grid;
-  gap: 24px;
+  gap: 36px;
   text-align: left;
 }
 
@@ -574,7 +671,7 @@ html, body {
   background: #ffffff;
   border: 1px solid rgba(146, 179, 154, 0.18);
   border-radius: 24px;
-  padding: 28px;
+  padding: var(--about-card-padding);
   box-shadow: 0 16px 40px rgba(92, 121, 88, 0.06);
 }
 
@@ -595,7 +692,7 @@ html, body {
   background: rgba(146, 179, 154, 0.1);
   border: 1px solid rgba(146, 179, 154, 0.2);
   border-radius: 24px;
-  padding: 24px;
+  padding: var(--about-card-padding);
   box-shadow: 0 14px 30px rgba(92, 121, 88, 0.08);
   text-align: left;
 }
@@ -639,10 +736,10 @@ html, body {
 #about-cta {
   background: rgba(146, 179, 154, 0.15);
   border-left: 5px solid rgba(146, 179, 154, 0.9);
-  padding: 28px 26px;
+  padding: var(--about-card-padding) var(--about-card-side-padding);
   border-radius: 24px;
   box-shadow: 0 18px 44px rgba(92, 121, 88, 0.08);
-  text-align: left;
+  text-align: center;
 }
 
 #about-cta-text {
@@ -702,5 +799,34 @@ html, body {
   #about-cta-text::before,
   #about-cta-text::after {
     display: none;
+  }
+}
+
+#Whychoosemeridian {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 8px;
+  font-family: "Quattrocento Sans", sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  color: #2F4E36;
+}
+
+#meridianlogotext {
+  height: 1.5em;       /* Scales proportionally with the h3 text size */
+  width: auto;         /* Preserves the image aspect ratio */
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 8px;  /* Gives the logo rounded rectangle corners */
+  margin: 0 6px;       /* Adds subtle spacing around the image */
+  object-fit: contain;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --about-section-gap: 48px;
+    --about-card-padding: 32px;
   }
 }
