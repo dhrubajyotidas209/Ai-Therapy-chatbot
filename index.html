@@ -30,22 +30,60 @@
   </div>
 </nav>
     <section id="hero">
+        <!-- Layer 0: Matrix canvas effect -->
         <canvas id="hero-matrix-canvas"></canvas>
+
+        <!-- Layer 1: Massive watermark background text -->
+        <div id="hero-watermark" aria-hidden="true">
+            <div class="watermark-line">
+                <span id="DECL">DECL</span><span id="UTTER">UTTER</span>
+            </div>
+            <div class="watermark-line">
+                <span id="YOUR">YOUR</span><span id="MIND">MIND</span>
+            </div>
+        </div>
+
+        <!-- Layer 2: Central 3D hero figure -->
+        <div id="hero-3d-figure">
+            <img src="Images/heroimagecutout.png" id="himg" alt="Meditating figure with flower petals — a serene jade sculpture representing mental clarity and wellness">
+        </div>
+
+        <!-- Layer 3: Foreground UI content -->
         <div id="hero-contents">
             <div id="welcome-text-container">
                 <div id="welcome-msg">
                     <h1 id="Declutter"><span id="typewriter-text">Declutter Your Mind</span><span class="typewriter-cursor">|</span></h1>
                     <p class="herotxtsmall"><span class="highlight-meridian">Meridian</span> is your perfect Ai therapy chatbot for clarity and emotional wellbeing</p>
-                    <p class="herotxtsmall">Start your journey to a decluttered life today!</p>
-                </div>
-                <div id="welcome-buttons">
-                    <button type="button" class="welcomebuttons" id="signup">Sign up for free!</button>
-                    <button type="button" class="welcomebuttons" id="login">Log back in</button>
                 </div>
             </div>
-            <div id="hero-image">
-                <img src="Images/heroimagecutout.png" id="himg" alt="Decorative flower illustration with a gentle pink blossom and green leaves evoking calm wellness for a therapy chatbot homepage">
+
+            <!-- Floating glassmorphism CTA buttons -->
+            <div id="hero-floating-cta">
+                <button type="button" class="hero-glass-card" id="signup">
+                    <span class="glass-card-label">Get Started</span>
+                    <span class="glass-card-title">SIGN UP</span>
+                    <span class="glass-card-sub">Free forever · No credit card</span>
+                </button>
+                <button type="button" class="hero-capsule-btn" id="login">
+                    <span class="capsule-indicator"></span>
+                    <span>LOGIN</span>
+                </button>
             </div>
+        </div>
+
+        <!-- Layer 4: Tagline below figure -->
+        <div id="hero-tagline">
+            <p>Finding Calm in the Chaos.</p>
+        </div>
+
+        <!-- Layer 5: Floating glass petals for depth -->
+        <div id="hero-petals" aria-hidden="true">
+            <div class="glass-petal petal-1"></div>
+            <div class="glass-petal petal-2"></div>
+            <div class="glass-petal petal-3"></div>
+            <div class="glass-petal petal-4"></div>
+            <div class="glass-petal petal-5"></div>
+            <div class="glass-petal petal-6"></div>
         </div>
     </section>
     <section id="about">
@@ -87,7 +125,7 @@
 
             <div id="about-problem-card" class="about-glass-card">
                 <div class="problem-header">
-                    <h3>What we saw</h3>
+                    <h3>What we saw<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2F4E36"><path d="M240-40H120q-33 0-56.5-23.5T40-120v-120h80v120h120v80Zm480 0v-80h120v-120h80v120q0 33-23.5 56.5T840-40H720ZM480-220q-120 0-217.5-71T120-480q45-118 142.5-189T480-740q120 0 217.5 71T840-480q-45 118-142.5 189T480-220Zm0-80q88 0 161-48t112-132q-39-84-112-132t-161-48q-88 0-161 48T207-480q39 84 112 132t161 48Zm0-40q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41Zm0-80q-25 0-42.5-17.5T420-480q0-25 17.5-42.5T480-540q25 0 42.5 17.5T540-480q0 25-17.5 42.5T480-420ZM40-720v-120q0-33 23.5-56.5T120-920h120v80H120v120H40Zm800 0v-120H720v-80h120q33 0 56.5 23.5T920-840v120h-80ZM480-480Z"/></svg></h3>
                 </div>
                 <div class="problem-body">
                     <div class="problem-left">
