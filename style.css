@@ -175,6 +175,12 @@ html, body {
   will-change: transform;
 }
 
+/* inner wrapper so the outer watermark can keep its subtle animation while we apply parallax offsets */
+#hero-watermark-inner {
+  will-change: transform;
+  display: inline-block;
+}
+
 .watermark-line {
   display: flex;
   align-items: center;
@@ -211,9 +217,8 @@ html, body {
 #hero-3d-figure {
   position: relative;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   flex-shrink: 0;
   transform: translateZ(0);
 }
@@ -233,6 +238,27 @@ html, body {
   background: transparent;
   padding: 0;
   box-shadow: none;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 0.12s linear;
+}
+
+/* Shadow duplicate of the hero image — blurred, greenish, sits behind the original */
+#himg-shadow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(280px, 36vw, 480px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  filter: blur(10px) brightness(0.06) saturate(1.4) sepia(0.08) hue-rotate(70deg) contrast(1.05) grayscale(0.12);
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.12s linear;
+  will-change: transform;
 }
 
 @keyframes heroFigureFloat {
@@ -291,7 +317,7 @@ html, body {
   font-family: "Momo Signature", cursive;
   font-weight: 400;
   font-style: normal;
-  color: #dff6e4;
+  color: #598362;
   font-size: clamp(36px, 4.5vw, 58px);
   margin: 0;
   line-height: 1.15;

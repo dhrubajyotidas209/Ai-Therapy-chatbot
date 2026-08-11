@@ -244,4 +244,82 @@ document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
   initHeroMatrixCursor();
   initTapReveal();
+  initParallax();
 });
+
+function initParallax() {
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+  const watermarkInner = document.getElementById('hero-watermark-inner');
+  const figure = document.getElementById('hero-3d-figure');
+  const tagline = document.getElementById('hero-tagline');
+  const shadow = document.getElementById('himg-shadow');
+  const navbar = document.querySelector('.navbar');
+
+  const max = { watermark: 26, figure: 12, tagline: 10, shadow: 28 };
+  const target = { wx: 0, wy: 0, fx: 0, fy: 0, tx: 0, ty: 0, sx: 0, sy: 0 };
+  const current = { wx: 0, wy: 0, fx: 0, fy: 0, tx: 0, ty: 0, sx: 0, sy: 0 };
+
+  function onMove(e) {
+    const rect = hero.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    let dx = (e.clientX - cx) / (rect.width / 2);
+    let dy = (e.clientY - cy) / (rect.height / 2);
+    dx = Math.max(-1, Math.min(1, dx));
+    dy = Math.max(-1, Math.min(1, dy));
+
+    target.fx = dx * max.figure;
+    target.fy = dy * max.figure;
+    target.wx = dx * max.watermark;
+    target.wy = dy * max.watermark;
+    target.tx = dx * max.tagline;
+    target.ty = dy * max.tagline;
+    // shadow moves opposite, stronger for a depth effect
+    target.sx = -dx * max.shadow;
+    target.sy = -dy * max.shadow;
+  }
+
+  hero.addEventListener('mousemove', onMove);
+  hero.addEventListener('mouseleave', () => {
+    for (const k in target) target[k] = 0;
+  });
+
+  // Also respond to pointer movement over the navbar so the hero parallax reacts from the top
+  if (navbar) {
+    navbar.addEventListener('mousemove', (e) => {
+      onMove(e);
+    });
+    navbar.addEventListener('mouseenter', (e) => {
+      onMove(e);
+    });
+    navbar.addEventListener('mouseleave', () => {
+      for (const k in target) target[k] = 0;
+    });
+  }
+
+  function raf() {
+    const ease = 0.12;
+    for (const k in current) {
+      current[k] += (target[k] - current[k]) * ease;
+    }
+
+    if (figure) {
+      figure.style.transform = `translate3d(${current.fx}px, ${current.fy}px, 0)`;
+    }
+    if (watermarkInner) {
+      watermarkInner.style.transform = `translate3d(${current.wx}px, ${current.wy}px, 0)`;
+    }
+    if (tagline) {
+      tagline.style.transform = `translate3d(${current.tx}px, ${current.ty}px, 0)`;
+    }
+    if (shadow) {
+      // keep shadow centered but offset in opposite direction
+      shadow.style.transform = `translate3d(calc(-50% + ${current.sx}px), calc(-50% + ${current.sy}px), 0)`;
+    }
+
+    requestAnimationFrame(raf);
+  }
+
+  raf();
+}
