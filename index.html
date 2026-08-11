@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meridian</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="./src/output.css">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/output.css">
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
 </head>
 <body>
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="nav-brand">
-      <div class="nav-logo" title="Meridian Logo">
-        <img src="Images/logo.png" alt="Meridian Logo" id="nav-logo-img">
-      </div>
-      <span class="nav-brand-name">Meridian.</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#blog">Blog</a></li>
-    </ul>
-    <a href="#signup" class="nav-cta-btn">Try now</a>
-  </div>
-</nav>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo" title="Meridian Logo">
+                    <img src="Images/logo.png" alt="Meridian Logo" id="nav-logo-img">
+                </div>
+                <span class="nav-brand-name">Meridian.</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+            <a href="#signup" class="nav-cta-btn">Try now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section id="hero">
         <!-- Layer 0: Matrix canvas effect -->
         <canvas id="hero-matrix-canvas"></canvas>
@@ -55,8 +65,12 @@
         <div id="hero-contents">
             <div id="welcome-text-container">
                 <div id="welcome-msg">
-                    <h1 id="Declutter"><span id="typewriter-text">Declutter Your Mind</span><span class="typewriter-cursor">|</span></h1>
-                    <p class="herotxtsmall"><span class="highlight-meridian">Meridian</span> is your perfect Ai therapy chatbot for clarity and emotional wellbeing</p>
+                    <h1 id="Declutter">
+                        <span id="typewriter-text">Declutter Your Mind</span><span class="typewriter-cursor">|</span>
+                    </h1>
+                    <p class="herotxtsmall">
+                        <span class="highlight-meridian">Meridian</span> is your perfect Ai therapy chatbot for clarity and emotional wellbeing
+                    </p>
                 </div>
             </div>
 
@@ -84,16 +98,23 @@
         <div id="hero-tagline">
             <p>Finding Calm in the Chaos</p>
         </div>
-
     </section>
+
+    <!-- About Section -->
     <section id="about">
         <div id="about-inner">
+            <!-- Intro Area -->
             <div id="about-intro">
                 <div id="about-intro-copy">
                     <div id="about-header">
                         <div id="about-heading">
                             <h2 id="about-title">We Started Meridian with a</h2>
-                            <h2 id="about-vision">Vision <svg xmlns="http://www.w3.org/2000/svg" height="38px" viewBox="0 -960 960 960" width="38px" fill="#5F7E68"><path d="M341-656 215-781l43-43 126 126-43 42Zm149-90v-170h60v170h-60Zm291 530L655-341l43-43 126 126-43 42Zm-73-449-43-43 106-106 43 43-106 106Zm38 175v-60h170v60H746ZM212-85 85-212q-9-9-9-21t9-21l370-371q35-35 85-35t85 35q35 35 35 85t-35 85L254-85q-9 9-21 9t-21-9Zm300-342-21-21-21-21-21.5-21-21.5-21 43 42 42 42ZM233-148l279-279-85-84-278 278 84 85Z"/></svg></h2>
+                            <h2 id="about-vision">
+                                Vision
+                                <svg xmlns="http://www.w3.org/2000/svg" height="38px" viewBox="0 -960 960 960" width="38px" fill="#5F7E68">
+                                    <path d="M341-656 215-781l43-43 126 126-43 42Zm149-90v-170h60v170h-60Zm291 530L655-341l43-43 126 126-43 42Zm-73-449-43-43 106-106 43 43-106 106Zm38 175v-60h170v60H746ZM212-85 85-212q-9-9-9-21t9-21l370-371q35-35 85-35t85 35q35 35 35 85t-35 85L254-85q-9 9-21 9t-21-9Zm300-342-21-21-21-21-21.5-21-21.5-21 43 42 42 42ZM233-148l279-279-85-84-278 278 84 85Z"/>
+                                </svg>
+                            </h2>
                         </div>
                     </div>
 
@@ -113,7 +134,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div id="about-illustration">
@@ -123,9 +143,15 @@
                 </div>
             </div>
 
+            <!-- Problem Card -->
             <div id="about-problem-card" class="about-glass-card">
                 <div class="problem-header">
-                    <h3>What we saw<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2F4E36"><path d="M240-40H120q-33 0-56.5-23.5T40-120v-120h80v120h120v80Zm480 0v-80h120v-120h80v120q0 33-23.5 56.5T840-40H720ZM480-220q-120 0-217.5-71T120-480q45-118 142.5-189T480-740q120 0 217.5 71T840-480q-45 118-142.5 189T480-220Zm0-80q88 0 161-48t112-132q-39-84-112-132t-161-48q-88 0-161 48T207-480q39 84 112 132t161 48Zm0-40q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41Zm0-80q-25 0-42.5-17.5T420-480q0-25 17.5-42.5T480-540q25 0 42.5 17.5T540-480q0 25-17.5 42.5T480-420ZM40-720v-120q0-33 23.5-56.5T120-920h120v80H120v120H40Zm800 0v-120H720v-80h120q33 0 56.5 23.5T920-840v120h-80ZM480-480Z"/></svg></h3>
+                    <h3>
+                        What we saw
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2F4E36">
+                            <path d="M240-40H120q-33 0-56.5-23.5T40-120v-120h80v120h120v80Zm480 0v-80h120v-120h80v120q0 33-23.5 56.5T840-40H720ZM480-220q-120 0-217.5-71T120-480q45-118 142.5-189T480-740q120 0 217.5 71T840-480q-45 118-142.5 189T480-220Zm0-80q88 0 161-48t112-132q-39-84-112-132t-161-48q-88 0-161 48T207-480q39 84 112 132t161 48Zm0-40q-25 0-42.5-17.5T420-480q0-25 17.5-42.5T480-540q25 0 42.5 17.5T540-480q0 25-17.5 42.5T480-420ZM40-720v-120q0-33 23.5-56.5T120-920h120v80H120v120H40Zm800 0v-120H720v-80h120q33 0 56.5 23.5T920-840v120h-80ZM480-480Z"/>
+                        </svg>
+                    </h3>
                 </div>
                 <div class="problem-body">
                     <div class="problem-left">
@@ -135,16 +161,24 @@
                     <div class="problem-right">
                         <p>We wanted to create a solution that breaks down these barriers and makes mental health support more accessible, affordable, and approachable for everyone.</p>
                     </div>
-                    <div class="problem-image-placeholder"><img src="Images/imagecutout(2).png" alt="flower"></div>
+                    <div class="problem-image-placeholder">
+                        <img src="Images/imagecutout(2).png" alt="flower">
+                    </div>
                 </div>
             </div>
 
+            <!-- Approach Section -->
             <div id="about-approach">
-            <h3 id="Whychoosemeridian">Why choose <img src="Images/logo text.png" alt="Meridian Logo" id="meridianlogotext">?</h3>
+                <h3 id="Whychoosemeridian">
+                    Why choose
+                    <img src="Images/logo text.png" alt="Meridian Logo" id="meridianlogotext">?
+                </h3>
+
                 <div class="about-card" id="about-difference">
                     <h4>What Makes Us Different</h4>
                     <p id="about-difference-text">Meridian is built to feel more than a tool. It is designed to feel like a supportive conversation partner that listens, responds with empathy, and guides you toward clarity.</p>
                 </div>
+
                 <div class="about-features" id="about-features">
                     <div class="feature-item" id="feature-human-centered">
                         <h4>Human-Centered Design</h4>
@@ -165,11 +199,13 @@
                 </div>
             </div>
 
+            <!-- Mission Section -->
             <div id="about-mission">
                 <h3>Our Mission</h3>
                 <p id="mission-text">Meridian exists to meet you where you are—in moments of doubt, confusion, or growth. We're here to help you understand yourself better, work through challenges, and build the life you want.</p>
             </div>
 
+            <!-- Values Section -->
             <div id="about-values">
                 <h3>Our Values</h3>
                 <p id="values-intro">Choose what resonates:</p>
@@ -181,11 +217,11 @@
                 </ul>
             </div>
 
+            <!-- CTA Section -->
             <div id="about-cta">
                 <blockquote id="about-cta-text">Start your wellness journey. Meridian is here whenever you need to talk.</blockquote>
             </div>
         </div>
     </section>
-
 </body>
 </html>
