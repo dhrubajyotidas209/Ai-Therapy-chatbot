@@ -29,21 +29,17 @@ function typeEffect() {
 function initHeroMatrixCursor() {
   const heroSection = document.getElementById("hero");
   const canvas = document.getElementById("hero-matrix-canvas");
-  if (!heroSection || !canvas) return;
-
   const ctx = canvas.getContext("2d");
   let width = 0;
-  let height = 0;
   let dpr = window.devicePixelRatio || 1;
 
-  // Matrix character set: Katakana, binary 0/1, digits, symbols
   const matrixChars = "アカサタナハマヤラワガザダバパイキシチニヒミリヰギジヂビピウクスツヌフムユルグズブヅプエケセテネヘメレヱゲゼデベペ0123456789010101+-*/=<>%$#@&λ§▲◆";
   const colors = ["#ffffff", "#a3ffc9", "#00ff77", "#00ff77", "#00ff77", "#5F7E68", "#92B39A"];
-
   const densityConfig = {
     idle: { spawnChance: 0.025, spawnCount: 1, maxParticles: 80 },
     hover: { spawnChance: 0.08, spawnCount: 2, maxParticles: 140 }
   };
+  let height = 0;
 
   function resizeCanvas() {
     dpr = window.devicePixelRatio || 1;
@@ -62,7 +58,6 @@ function initHeroMatrixCursor() {
   window.addEventListener("resize", resizeCanvas);
   resizeCanvas();
 
-  // Mouse state
   let targetX = width / 2;
   let targetY = height / 2;
   let currX = width / 2;
@@ -94,7 +89,6 @@ function initHeroMatrixCursor() {
     isHovering = false;
   });
 
-  // Particle Collection
   const particles = [];
 
   function spawnParticles(x, y, count = 1) {

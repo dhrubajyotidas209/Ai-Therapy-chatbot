@@ -163,7 +163,7 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,12 +194,12 @@ html, body {
 
 #DECL, #YOUR {
   color: rgba(139, 212, 162, 0.664);
-  filter: blur(1px);
+  filter: blur(5px);
 }
 
 #UTTER, #MIND {
   color: rgba(240, 252, 242, 0.95);
-  filter: blur(0.9px);
+  filter: blur(5px);
 }
 
 @keyframes heroWatermarkFloat {
@@ -337,6 +337,9 @@ html, body {
 
 /* Floating CTA Buttons Container */
 #hero-floating-cta {
+  position: absolute;
+  right: 5%;
+  bottom: 44px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -372,27 +375,55 @@ html, body {
   box-shadow:
     0 26px 64px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  border-color: rgba(242, 201, 107, 0.45);
+}
+
+.glass-card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.glass-card-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+#signup .glass-card-dot {
+  background: #f5d770;
+  box-shadow: 0 0 18px rgba(224, 209, 109, 0.35);
+}
+
+#login .glass-card-dot {
+  background: #6adf75;
+  box-shadow: 0 0 18px rgba(191, 214, 107, 0.35);
+}
+
+.hero-glass-card:hover .glass-card-dot {
+  transform: scale(1.15);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.55), 0 0 16px rgba(255, 255, 255, 0.25);
 }
 
 .glass-card-label {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #f2d59f;
+  color: #1A3C2F;
 }
 
 .glass-card-title {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #ffffff;
 }
 
 .glass-card-sub {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  color: #1A3C2F;
   letter-spacing: 0.04em;
 }
 
@@ -401,48 +432,30 @@ html, body {
   50% { transform: translateY(-8px); }
 }
 
-/* Login — Floating Capsule Button */
-.hero-capsule-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 32px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(242, 201, 107, 0.16));
-  border: 1.5px solid rgba(242, 201, 107, 0.45);
-  border-radius: 500px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  color: #fff6de;
-  font-family: "Quattrocento Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+/* Login — Secondary Glass Card Button */
+.hero-secondary-card {
+  padding: 32px 40px;
+  min-width: 220px;
+  background: linear-gradient(135deg, rgba(191, 214, 107, 0.18), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(191, 214, 107, 0.55);
+  border-radius: 24px;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   animation: glassFloat 5s ease-in-out 1.5s infinite;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.hero-capsule-btn:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(242, 201, 107, 0.24));
-  border-color: rgba(242, 201, 107, 0.8);
-  color: #ffffff;
-  box-shadow: 0 12px 32px rgba(242, 201, 107, 0.24);
-  transform: translateY(-3px);
-}
-
-.capsule-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
-  animation: indicatorPulse 2s ease-in-out infinite;
-}
-
-@keyframes indicatorPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(74, 222, 128, 0.6); }
-  50% { opacity: 0.5; box-shadow: 0 0 16px rgba(74, 222, 128, 0.9); }
+.hero-secondary-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: linear-gradient(135deg, rgba(191, 214, 107, 0.28), rgba(255, 255, 255, 0.12));
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  border-color: rgba(191, 214, 107, 0.85);
 }
 
 /* Layer 4 — Tagline */
@@ -461,94 +474,8 @@ html, body {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.32);
 }
 
-/* Layer 5 — Floating Glass Petals */
-#hero-petals {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
-  overflow: hidden;
-}
 
-.glass-petal {
-  position: absolute;
-  border-radius: 50% 50% 50% 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(242, 201, 107, 0.12));
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.petal-1 {
-  width: 60px; height: 60px;
-  top: 15%; left: 8%;
-  animation: petalDrift1 12s ease-in-out infinite;
-  opacity: 0.65;
-  background: linear-gradient(135deg, rgba(22, 63, 44, 0.42), rgba(84, 121, 98, 0.18));
-  border-color: rgba(22, 63, 44, 0.24);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 0 16px rgba(22, 63, 44, 0.16);
-}
-.petal-2 {
-  width: 40px; height: 40px;
-  top: 65%; right: 12%;
-  animation: petalDrift2 10s ease-in-out infinite 1s;
-  opacity: 0.5;
-  border-radius: 50% 0 50% 50%;
-}
-.petal-3 {
-  width: 80px; height: 80px;
-  bottom: 20%; left: 15%;
-  animation: petalDrift3 14s ease-in-out infinite 2s;
-  opacity: 0.35;
-  filter: blur(2px);
-  background: linear-gradient(135deg, rgba(19, 60, 41, 0.36), rgba(92, 132, 108, 0.16));
-  border-color: rgba(19, 60, 41, 0.24);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 0 14px rgba(19, 60, 41, 0.14);
-}
-.petal-4 {
-  width: 35px; height: 35px;
-  top: 25%; right: 20%;
-  animation: petalDrift1 11s ease-in-out infinite 3s;
-  opacity: 0.55;
-  border-radius: 0 50% 50% 50%;
-}
-.petal-5 {
-  width: 50px; height: 50px;
-  bottom: 30%; right: 6%;
-  animation: petalDrift2 13s ease-in-out infinite 4s;
-  opacity: 0.4;
-  filter: blur(1px);
-}
-.petal-6 {
-  width: 28px; height: 28px;
-  top: 45%; left: 5%;
-  animation: petalDrift3 9s ease-in-out infinite 0.5s;
-  opacity: 0.6;
-  background: linear-gradient(135deg, rgba(24, 67, 47, 0.38), rgba(94, 135, 108, 0.15));
-  border-color: rgba(24, 67, 47, 0.24);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 0 12px rgba(24, 67, 47, 0.12);
-}
-
-@keyframes petalDrift1 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(15px, -20px) rotate(45deg); }
-  50% { transform: translate(-10px, -35px) rotate(90deg); }
-  75% { transform: translate(20px, -15px) rotate(135deg); }
-}
-@keyframes petalDrift2 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(-20px, 15px) rotate(-60deg); }
-  66% { transform: translate(10px, -25px) rotate(-120deg); }
-}
-@keyframes petalDrift3 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-  50% { transform: translate(25px, -30px) rotate(180deg) scale(1.1); }
-}
-
-/* ═══════════════════════════════════════════
-   HERO RESPONSIVE
+/* HERO RESPONSIVE
    ═══════════════════════════════════════════ */
 @media (max-width: 960px) {
   #hero {
@@ -578,7 +505,7 @@ html, body {
 
   .hero-glass-card {
     padding: 20px 28px;
-    min-width: auto;
+    min-width: 220px;
   }
 
   .glass-card-title {
@@ -769,35 +696,35 @@ html, body {
 }
 
 #signup {
-  background: rgba(71, 101, 80, 0.75); /* Colored green liquid glass */
+  background: linear-gradient(135deg, rgba(224, 209, 109, 0.20), rgba(255, 255, 255, 0.08));
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(224, 209, 109, 0.72);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
   animation: floatButton 3s ease-in-out infinite;
 }
 
 #signup:hover {
   animation-play-state: paused;
   transform: translateY(-8px);
-  background: rgba(71, 101, 80, 0.92);
-  box-shadow: 0 12px 30px rgba(71, 101, 80, 0.5);
+  background: linear-gradient(135deg, rgba(224, 209, 109, 0.32), rgba(255, 255, 255, 0.12));
+  box-shadow: 0 12px 30px rgba(224, 209, 109, 0.35);
 }
 
 #login {
-  background: rgba(146, 179, 154, 0.15); /* Tinted frosted liquid glass */
-  color: #92B39A;
-  border: 2px solid rgba(146, 179, 154, 0.6);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, rgba(191, 214, 107, 0.20), rgba(255, 255, 255, 0.08));
+  color: #ffffff;
+  border: 1px solid rgba(191, 214, 107, 0.72);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
   animation: floatButton 3s ease-in-out 1.5s infinite;
 }
 
 #login:hover {
   animation-play-state: paused;
   transform: translateY(-8px);
-  background: rgba(146, 179, 154, 0.32);
+  background: linear-gradient(135deg, rgba(191, 214, 107, 0.32), rgba(255, 255, 255, 0.12));
   color: #ffffff;
-  border-color: rgba(146, 179, 154, 0.9);
-  box-shadow: 0 12px 30px rgba(146, 179, 154, 0.4);
+  border-color: rgba(191, 214, 107, 0.95);
+  box-shadow: 0 12px 30px rgba(191, 214, 107, 0.32);
 }
 
 /* About Section */
